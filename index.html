@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aplikasi Plastik Keselamatan SPM</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="badge">SPM • SEGAMAT (JH)</div>
+      <h1>Aplikasi Pengisian Penggunaan Plastik Keselamatan SPM</h1>
+      <p>Rekod penggunaan plastik keselamatan dengan dropdown kod subjek, kod pusat dan penyelia kawasan.</p>
+    </section>
+
+    <section class="stats">
+      <div><span id="subjectCount">0</span><small>Kod Subjek</small></div>
+      <div><span id="centerCount">0</span><small>Pusat SPM</small></div>
+      <div><span id="supervisorCount">0</span><small>Penyelia</small></div>
+    </section>
+
+    <section class="card">
+      <h2>Borang Rekod</h2>
+      <form id="spmForm">
+        <div class="grid">
+          <label>Tarikh
+            <input type="date" id="tarikh" name="tarikh" required />
+          </label>
+          <label>Hari
+            <input type="text" id="hari" name="hari" readonly />
+          </label>
+
+          <label>Kod Subjek SPM
+            <select id="kodSubjek" name="kodSubjek" required>
+              <option value="">Pilih Kod Subjek</option>
+            </select>
+          </label>
+          <label>Nama Subjek
+            <input type="text" id="namaSubjek" name="namaSubjek" readonly />
+          </label>
+
+          <label>Kod Pusat
+            <select id="kodPusat" name="kodPusat" required>
+              <option value="">Pilih Kod Pusat</option>
+            </select>
+          </label>
+          <label>Nama Pusat
+            <input type="text" id="namaPusat" name="namaPusat" readonly />
+          </label>
+
+          <label>Penyelia Kawasan
+            <select id="penyelia" name="penyelia" required>
+              <option value="">Pilih Penyelia Kawasan</option>
+            </select>
+          </label>
+          <label>Bilangan Plastik Digunakan
+            <input type="number" min="0" id="bilPlastik" name="bilPlastik" placeholder="Contoh: 3" required />
+          </label>
+
+          <label>Nama Petugas / Pegawai
+            <input type="text" id="namaPetugas" name="namaPetugas" placeholder="Nama pegawai yang merekod" required />
+          </label>
+          <label>No. Telefon
+            <input type="tel" id="telefon" name="telefon" placeholder="Contoh: 012-3456789" />
+          </label>
+
+          <label class="full">Catatan
+            <textarea id="catatan" name="catatan" rows="4" placeholder="Catatan tambahan jika ada"></textarea>
+          </label>
+        </div>
+
+        <button class="btn" type="submit">Hantar Rekod</button>
+        <p id="statusMsg" class="status"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="sectionHead">
+        <h2>Rekod Terkini Peranti Ini</h2>
+        <button type="button" class="secondary" id="clearLocal">Kosongkan</button>
+      </div>
+      <div class="tableWrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tarikh</th><th>Hari</th><th>Kod</th><th>Subjek</th><th>Kod Pusat</th><th>Pusat</th><th>Penyelia</th><th>Bil.</th>
+            </tr>
+          </thead>
+          <tbody id="recordsBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
